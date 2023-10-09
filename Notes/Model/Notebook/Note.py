@@ -2,22 +2,21 @@ import datetime
 
 
 class Note():
-    id = null
 
     def __init__(self, id, name, date, text):
         self.id = id
         self.name = name
         self.date = date
-        self.
+        self.text = text
 
     def getId():
         return id
 
-    def setId(int id):
-        pass
+    def setId(self, id):
+        self.id = id
 
-    def getFullInfo():
-        return id.name.text
+    def getFullInfo(self,):
+        return self.id+self.name+self.date+self.text
 
-    def getDate():
-        return date
+    def getDate(self):
+        return self.date
