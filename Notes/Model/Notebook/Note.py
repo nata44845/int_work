@@ -16,7 +16,7 @@ class Note():
         self.id = id
 
     def getFullInfo(self,):
-        return self.id+self.name+self.date+self.text
+        return self.id+' '+self.name+' '+self.date+' '+self.text
 
     def getDate(self):
         return self.date
