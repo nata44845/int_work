@@ -3,8 +3,7 @@ from Model.Comparators.ComparatorByHeader import ComparatorByHeader
 
 
 class Notebook:
-
-    def __init__(self, obj):
+    def __init__(self):
         self.itemList = []
         self.id = 0
         self.__index = 0
@@ -21,13 +20,13 @@ class Notebook:
         return note
 
     def addItem(self, note):
-        self.id = self.id+1
+        self.id = self.id + 1
         note.setId(self.id)
         self.itemList.append(note)
 
     def removeItem(self, id):
         for item in self.itemList:
-            if item.getId == id:
+            if item.getId() == id:
                 self.itemList.remove(item)
                 return True
         return False
@@ -37,10 +36,10 @@ class Notebook:
 
     def getInfo(self):
         sb = ""
-        sb += ("Список записей: \n")
+        sb += "Список записей: \n"
         for item in self.itemList:
             sb += item.getFullInfo()
-            sb += ("\n")
+            sb += "\n"
         return sb
 
     def getNotebookSize(self):

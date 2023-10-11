@@ -5,7 +5,6 @@ import re
 
 
 class ConsoleUI:
-
     INPUT_ERROR = "Вы ввели неверное значение"
 
     def __init__(self):
@@ -23,7 +22,7 @@ class ConsoleUI:
 
     def start(self):
         self.hello()
-        while (self.work):
+        while self.work:
             self.printMenu()
             self.execute()
 
@@ -61,15 +60,17 @@ class ConsoleUI:
     def clearData(self):
         print("Удаление данных")
         question = input("Удалить данные Y/N?")
-        if (question == "Y"):
+        if question == "Y":
             self.presenter.clearData()
 
     def editData(self):
         print("Редактирование записи")
         line = input("Введите номер записи: ")
-        if (self.checkTextForInt(line)):
+        if self.checkTextForInt(line):
             numId = int(line)
             self.presenter.editData(numId)
+        else:
+            self.inputError()
 
     def editItem(self, note):
         print(note.getFullInfo())
@@ -81,7 +82,7 @@ class ConsoleUI:
         print("Удаление заметки")
         self.getInfo()
         line = input("Введите номер заметки: ")
-        if (self.checkTextForInt(line)):
+        if self.checkTextForInt(line):
             numId = int(line)
             self.presenter.removeItem(numId)
 
@@ -90,19 +91,19 @@ class ConsoleUI:
 
     def execute(self):
         line = input()
-        if (self.checkTextForInt(line)):
+        if self.checkTextForInt(line):
             numCommand = int(line)
-            if (self.checkCommand(numCommand)):
+            if self.checkCommand(numCommand):
                 self.menu.execute(numCommand)
 
     def checkTextForInt(self, text):
-        if (re.match(r'[0-9]+', text)):
+        if re.match(r"[0-9]+", text):
             return True
         else:
             return False
 
     def checkCommand(self, numCommand):
-        if (numCommand <= self.menu.getSize()):
+        if numCommand <= self.menu.getSize():
             return True
         else:
             self.inputError()
