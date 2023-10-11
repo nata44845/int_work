@@ -30,14 +30,6 @@ class ConsoleUI:
         print("До свидания")
         self.work = False
 
-    def sortByDate(self):
-        print("Сортировка по дате")
-        self.presenter.sortByDate()
-
-    def sortByHeader(self):
-        print("Сортировка по названию")
-        self.presenter.sortByHeader()
-
     def getInfo(self):
         self.presenter.getInfo()
 
@@ -114,3 +106,11 @@ class ConsoleUI:
 
     def inputError(self):
         print(self.INPUT_ERROR)
+
+    def sortByDate(self):
+        print("Сортировка по дате")
+        self.presenter.sortByDate()
+
+    def sortByHeader(self):
+        print("Сортировка по названию")
+        self.presenter.sortByHeader()

@@ -51,12 +51,8 @@ class Notebook:
                 return self.itemList[i]
         return None
 
-    # @ Override
-    # public Iterator < E > iterator() {
-    #     return new TreeIterator <> (itemList); }
+    # def sortByHeader(self):
+    #     self.itemList = sorted(self.itemList, key=ComparatorByHeader)
 
-    def sortByHeader(self):
-        self.itemList = sorted(self.itemList, key=ComparatorByHeader)
-
-    def sortByDate(self):
-        self.itemList = sorted(self.itemList, key=ComparatorByDate)
+    # def sortByDate(self):
+    #     self.itemList = sorted(self.itemList, key=ComparatorByDate)

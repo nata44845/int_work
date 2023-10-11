@@ -16,14 +16,6 @@ class Presenter:
     def getInfo(self):
         self.view.printAnswer(self.notebook.getInfo())
 
-    def sortByDate(self):
-        self.notebook.sortByDate()
-        self.getInfo()
-
-    def sortByHeader(self):
-        self.notebook.sortByHeader()
-        self.getInfo()
-
     def getSize(self) -> int:
         return self.notebook.getSize()
 
@@ -70,3 +62,11 @@ class Presenter:
             self.view.printAnswer(f"Запись {id} удалена")
         if flag == False:
             self.view.printAnswer("Данные не найдены")
+
+    def sortByDate(self):
+        self.notebook.sortByDate()
+        self.getInfo()
+
+    def sortByHeader(self):
+        self.notebook.sortByHeader()
+        self.getInfo()

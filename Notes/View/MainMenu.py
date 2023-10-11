@@ -12,7 +12,6 @@ from View.Commands.ClearData import ClearData
 
 
 class MainMenu:
-
     def __init__(self, consoleUI):
         self.commandList = []
         self.commandList.append(GetInfo(consoleUI))
@@ -30,14 +29,14 @@ class MainMenu:
     def menu(self):
         sb = ""
         for i in range(len(self.commandList)):
-            sb += str(i+1)
+            sb += str(i + 1)
             sb += ". "
             sb += self.commandList[i].getDescription()
             sb += "\n"
         return sb
 
     def execute(self, choice):
-        command = self.commandList[choice-1]
+        command = self.commandList[choice - 1]
         command.execute()
 
     def getSize(self):
