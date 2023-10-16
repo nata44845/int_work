@@ -21,7 +21,7 @@ class ConsoleUI:
         print(text)
 
     def start(self):
-        self.hello()
+        self.title()
         while self.work:
             self.printMenu()
             self.execute()
@@ -78,8 +78,8 @@ class ConsoleUI:
             numId = int(line)
             self.presenter.removeItem(numId)
 
-    def hello(self):
-        print("Доброго времени суток!")
+    def title(self):
+        print("Записная книжка")
 
     def execute(self):
         line = input()
