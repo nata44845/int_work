@@ -88,12 +88,15 @@ public class ToyShop<E extends ToyShopItem> implements Serializable, Iterable<E>
                 count = count + item.getWeight();
             }
         }
+        System.out.println(getToyShopInfo());
+        System.out.println("Всего " + count);
         // Нет игрушек к розыгрышу
         if (count == 0)
             return false;
 
         // Получить случайное число
         Integer cnt = rnd.nextInt(count) + 1;
+        System.out.println("Число " + cnt);
         count = 0;
         for (E item : lotteryList) {
             count = count + item.getWeight();
@@ -128,7 +131,7 @@ public class ToyShop<E extends ToyShopItem> implements Serializable, Iterable<E>
             } else {
                 // Сдвиг очереди
                 List<E> prizeTemp = new ArrayList<>();
-                for (int i = 1; i < itemList.size(); i++) {
+                for (int i = 1; i < prizeList.size(); i++) {
                     prizeTemp.add(prizeList.get(i));
                 }
                 prizeList = prizeTemp;
