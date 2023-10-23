@@ -89,6 +89,26 @@ public class ConsoleUI implements View {
         presenter.getPrize();
     }
 
+    public void changeWeight() {
+        System.out.println("Изменение веса в лотерее");
+        presenter.getToyShopInfo();
+
+        System.out.println("Укажите id");
+        String idString = scanner.nextLine();
+        Integer id = 0;
+        if (idString != "")
+            id = Integer.parseInt(idString);
+
+        System.out.println("Укажите вес в лотерее");
+        String weightString = scanner.nextLine();
+        Integer weight = 0;
+        if (weightString != "")
+            weight = Integer.parseInt(weightString);
+
+        presenter.changeWeight(id, weight);
+        presenter.
+    }
+
     private void title() {
         System.out.println("Розыгрыш игрушек");
     }
