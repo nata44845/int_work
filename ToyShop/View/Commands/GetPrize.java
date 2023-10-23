@@ -10,6 +10,6 @@ public class GetPrize extends Command {
     }
 
     public void execute() {
-        consoleUI.addItem();
+        consoleUI.getPrize();
     }
 }

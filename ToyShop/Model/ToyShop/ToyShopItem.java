@@ -7,10 +7,18 @@ public interface ToyShopItem {
 
     String getFullInfo();
 
+    String getPrizeInfo();
+
     String getName();
 
     Integer getCount();
 
-    double getPercent();
+    void setCount(Integer i);
+
+    Integer getCountInLottery();
+
+    void setCountInLottery(Integer i);
+
+    Integer getWeight();
 
 }

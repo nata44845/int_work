@@ -16,14 +16,14 @@ public class Presenter {
         this.wr = wr;
     }
 
-    public Toy addItem(String name, Integer count, double percent) {
-        Toy toy = new Toy(name, count, percent);
-        toyShop.addItem(toy);
-        return toy;
-    }
-
     public void getToyShopInfo() {
         view.printAnswer(toyShop.getToyShopInfo());
+    }
+
+    public Toy addItem(String name, Integer count, Integer weight) {
+        Toy toy = new Toy(name, count, weight);
+        toyShop.addItem(toy);
+        return toy;
     }
 
     public void sortByCount() {
@@ -71,5 +71,28 @@ public class Presenter {
         }
         if (flag == false)
             view.printAnswer("Данные не найдены");
+    }
+
+    public void getLotteryInfo() {
+        view.printAnswer(toyShop.getLotteryInfo());
+    }
+
+    public void lottery() {
+        if (toyShop.Lottery())
+            getLotteryInfo();
+        else
+            view.printAnswer("Нет призов для розыгрыша");
+    }
+
+    public void getPrize() {
+        Toy prize = toyShop.getPrize();
+        if (prize != null) {
+            // Сохранить приз
+            // Сдвинуть очередь
+            toyShop.setPrizeList();
+            view.printAnswer("Разыгран приз " + prize.getName());
+            getLotteryInfo();
+        } else
+            view.printAnswer("Нет призов в списке разыгранных");
     }
 }

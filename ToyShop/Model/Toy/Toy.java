@@ -1,10 +1,6 @@
 package Model.Toy;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.Period;
-import java.util.ArrayList;
-import java.util.List;
 
 import Model.ToyShop.ToyShopItem;
 
@@ -12,8 +8,9 @@ public class Toy implements Serializable, ToyShopItem {
     private int id;
     private String name;
     private Integer count;
+    private Integer countInLottery;
 
-    private double percent;
+    private Integer weight;
 
     public Toy() {
     }
@@ -22,11 +19,11 @@ public class Toy implements Serializable, ToyShopItem {
         this(name, count, 0);
     }
 
-    public Toy(String name, Integer count, double percent) {
+    public Toy(String name, Integer count, Integer weight) {
         this.name = name;
         this.count = count;
-        this.percent = percent;
-
+        this.weight = weight;
+        this.countInLottery = 0;
     }
 
     public int getId() {
@@ -53,18 +50,26 @@ public class Toy implements Serializable, ToyShopItem {
         this.count = count;
     }
 
-    public double getPercent() {
-        return percent;
+    public Integer getCountInLottery() {
+        return countInLottery;
     }
 
-    public void setPercent(double percent) {
-        this.percent = percent;
+    public void setCountInLottery(Integer countInLottery) {
+        this.countInLottery = countInLottery;
+    }
+
+    public Integer getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Integer weight) {
+        this.weight = weight;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%d %s %d %f", id, name, count, percent));
+        sb.append(String.format("%d %s %d %d", id, name, count, weight));
         return sb.toString();
     }
 
@@ -72,6 +77,12 @@ public class Toy implements Serializable, ToyShopItem {
         StringBuilder sb = new StringBuilder();
         sb.append(this);
         sb.append("\n------------------------");
+        return sb.toString();
+    }
+
+    public String getPrizeInfo() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("%d %s %d %d", id, name, count, countInLottery));
         return sb.toString();
     }
 

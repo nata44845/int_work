@@ -2,14 +2,14 @@ package View.Commands;
 
 import View.ConsoleUI;
 
-public class Raffle extends Command {
+public class Lottery extends Command {
 
-    public Raffle(ConsoleUI consoleUI) {
+    public Lottery(ConsoleUI consoleUI) {
         super(consoleUI);
         description = "Розыгрыш";
     }
 
     public void execute() {
-        consoleUI.addItem();
+        consoleUI.lottery();
     }
 }

@@ -30,7 +30,7 @@ public class ConsoleUI implements View {
         String[] names = new String[] { "Кукла", "Медведь", "Машинка", "Робот", "Крокодил" };
 
         for (int i = 0; i < num; i++) {
-            presenter.addItem(names[rnd.nextInt(names.length)], rnd.nextInt(1000), rnd.nextDouble(100));
+            presenter.addItem(names[rnd.nextInt(names.length)], rnd.nextInt(5), rnd.nextInt(100));
         }
     }
 
@@ -57,6 +57,10 @@ public class ConsoleUI implements View {
         presenter.getToyShopInfo();
     }
 
+    public void getLotteryInfo() {
+        presenter.getLotteryInfo();
+    }
+
     public void addItem() {
         System.out.println("Добавление данных");
         System.out.println("Введите название");
@@ -68,13 +72,21 @@ public class ConsoleUI implements View {
         if (countString != "")
             count = Integer.parseInt(countString);
 
-        System.out.println("Укажите процент");
-        String percentString = scanner.nextLine();
-        double percent = 0;
-        if (percentString != "")
-            percent = Double.parseDouble(percentString);
+        System.out.println("Укажите вес в лотерее");
+        String weightString = scanner.nextLine();
+        Integer weight = 0;
+        if (weightString != "")
+            weight = Integer.parseInt(weightString);
 
-        presenter.addItem(name, count, percent);
+        presenter.addItem(name, count, weight);
+    }
+
+    public void lottery() {
+        presenter.lottery();
+    }
+
+    public void getPrize() {
+        presenter.getPrize();
     }
 
     private void title() {
