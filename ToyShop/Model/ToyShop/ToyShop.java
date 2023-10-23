@@ -69,10 +69,14 @@ public class ToyShop<E extends ToyShopItem> implements Serializable, Iterable<E>
 
     public String getLotteryInfo() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Список разыгранных игрушек: \n");
-        for (E item : prizeList) {
-            sb.append(item.getPrizeInfo());
-            sb.append("\n");
+        if (prizeList.size() == 0) {
+            sb.append("Список разыгранных игрушек пуст");
+        } else {
+            sb.append("Список разыгранных игрушек: \n");
+            for (E item : prizeList) {
+                sb.append(item.getPrizeInfo());
+                sb.append("\n");
+            }
         }
         return sb.toString();
     }

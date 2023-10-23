@@ -76,7 +76,6 @@ public class Toy implements Serializable, ToyShopItem {
     public String getFullInfo() {
         StringBuilder sb = new StringBuilder();
         sb.append(this);
-        sb.append("\n------------------------");
         return sb.toString();
     }
 

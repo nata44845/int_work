@@ -12,6 +12,7 @@ public class MainMenu {
         commandList = new ArrayList<>();
         commandList.add(new GetToyShopInfo(consoleUI));
         commandList.add(new AddItem(consoleUI));
+        commandList.add(new ChangeWeight(consoleUI));
         commandList.add(new Lottery(consoleUI));
         commandList.add(new GetPrize(consoleUI));
         // commandList.add(new SortByName(consoleUI));

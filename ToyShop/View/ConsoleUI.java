@@ -1,11 +1,8 @@
 package View;
 
-import Model.Toy.Toy;
 import Presenter.Presenter;
 import FileWork.FileHandler;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -42,9 +39,16 @@ public class ConsoleUI implements View {
     @Override
     public void start() {
         title();
+
         while (work) {
-            printMenu();
-            execute();
+            try {
+                printMenu();
+                execute();
+            } catch (NumberFormatException e) {
+                inputError();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         }
     }
 
@@ -99,14 +103,17 @@ public class ConsoleUI implements View {
         if (idString != "")
             id = Integer.parseInt(idString);
 
-        System.out.println("Укажите вес в лотерее");
-        String weightString = scanner.nextLine();
-        Integer weight = 0;
-        if (weightString != "")
-            weight = Integer.parseInt(weightString);
+        if (presenter.findData(id)) {
+            System.out.println("Укажите вес в лотерее");
+            String weightString = scanner.nextLine();
+            Integer weight = 0;
+            if (weightString != "")
+                weight = Integer.parseInt(weightString);
+            presenter.changeWeight(id, weight);
+        } else {
+            printAnswer("Данные не найдены");
+        }
 
-        presenter.changeWeight(id, weight);
-        presenter.
     }
 
     private void title() {
